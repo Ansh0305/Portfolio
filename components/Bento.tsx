@@ -51,7 +51,7 @@ function TechTile({
   const style = TILE_STYLES[variant];
 
   return (
-    <div
+    <article
       className={`flex flex-col gap-5 p-8 md:p-[40px] w-full md:flex-1 ${style.container}`}
     >
       <span className={`font-ibm-mono text-[11px] font-bold tracking-[2px] ${style.index}`}>
@@ -86,7 +86,7 @@ function TechTile({
           </span>
         </div>
       )}
-    </div>
+    </article>
   );
 }
 
