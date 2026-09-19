@@ -17,9 +17,9 @@ export default function Experience() {
         subtitle="ROLES, SCOPE AND THE OUTCOMES THAT CAME OUT OF THEM."
       />
 
-      <div className="flex flex-col w-full">
+      <ol className="flex flex-col w-full">
         {experience.map((item) => (
-          <article
+          <li
             key={`${item.company}-${item.range}`}
             className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-4 md:gap-[48px] py-8 border-t border-t-[#1D1D1D]"
           >
@@ -63,10 +63,10 @@ export default function Experience() {
                 ))}
               </div>
             </div>
-          </article>
+          </li>
         ))}
-        <div className="border-t border-t-[#1D1D1D]" />
-      </div>
+      </ol>
+      <div className="border-t border-t-[#1D1D1D]" />
     </section>
   );
 }
