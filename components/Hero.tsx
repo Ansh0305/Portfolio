@@ -77,11 +77,16 @@ export default function Hero() {
 
       {/* Animated workspace panel */}
       <div
+        aria-hidden="true"
         className="w-full max-w-[1100px] bg-[#0F0F0F] overflow-hidden"
         style={{ border: "2px solid #2D2D2D" }}
       >
         <WorkspaceSVG mounted={mounted} />
       </div>
+      <span className="sr-only">
+        Illustration of an editor workspace showing a project file tree, build
+        metadata, a commit log and deployment status.
+      </span>
 
       {/* Collab cursors on the full hero */}
       <CollabCursors />
