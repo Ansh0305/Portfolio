@@ -24,6 +24,8 @@ export interface Profile {
   handle: string;
   role: string;
   email: string;
+  /** Canonical site URL — used by metadata, sitemap, robots and schema. */
+  siteUrl: string;
   location: string;
   availability: string;
   /** Path or URL to a downloadable PDF résumé. */
@@ -47,6 +49,7 @@ export const profile: Profile = {
   handle: "@ANSH0305",
   role: "FULL-STACK DEVELOPER",
   email: "saiansh2016@gmail.com",
+  siteUrl: "https://ansh0305.dev",
   location: "REMOTE // GMT+5:30",
   availability: "OPEN TO WORK",
   resumeUrl: "/resume.pdf",
