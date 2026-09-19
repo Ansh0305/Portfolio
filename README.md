@@ -80,6 +80,48 @@ Colors are defined as CSS custom properties in `app/globals.css`:
 
 Change `--yellow` / `--orange` to re-skin the entire site.
 
+## Accessibility
+
+- **Keyboard first:** a skip link is the first tab stop on every page, and all
+  interactive controls render a visible focus ring.
+- **Motion:** every animation is disabled under
+  `prefers-reduced-motion: reduce`.
+- **Structure:** `main`, `nav` and `footer` landmarks are used throughout, with
+  a single `h1` and section-level `h2`s.
+- **Screen readers:** the hero workspace panel is decorative and hidden from
+  assistive technology, and the typewriter headings are announced once rather
+  than character by character.
+
+## SEO
+
+- Metadata, Open Graph and Twitter cards are generated from `data/profile.ts`.
+- `app/sitemap.ts`, `app/robots.ts` and `app/manifest.ts` are convention-based
+  routes.
+- Person + WebSite JSON-LD is rendered by `components/StructuredData.tsx`.
+- **Set `siteUrl` in `data/profile.ts` to your real domain before deploying.**
+
+## Tooling
+
+Editor, formatting and linting configs ship with the repo — `.editorconfig`,
+`.gitattributes`, `prettier.config.mjs` and `eslint.config.mjs`. The packages
+themselves are optional dev dependencies, so install them if you want to run
+them:
+
+```bash
+npm install -D eslint eslint-config-next @eslint/eslintrc prettier
+npm run lint
+npx prettier --write .
+```
+
+## Deployment
+
+The site is fully static and prerenders to plain HTML, so any host works. On
+Vercel:
+
+1. Push the repository to GitHub.
+2. Import it in Vercel — the Next.js preset is detected automatically.
+3. No environment variables are required.
+
 ## License
 
 None of the fonts are licensed by this repository. Space Grotesk and IBM Plex
