@@ -7,6 +7,7 @@ export default function FinalCTA() {
   return (
     <section
       id="contact"
+      aria-labelledby="contact-heading"
       className="flex flex-col items-center w-full bg-[#0A0A0A] py-16 px-6 md:p-[120px] gap-10 md:gap-[48px] border-t-2 border-t-[#FFD600]"
     >
       {/* Badge */}
@@ -17,7 +18,10 @@ export default function FinalCTA() {
       </div>
 
       {/* Title */}
-      <h2 className="font-grotesk text-[44px] md:text-[80px] font-bold text-[#F5F5F0] tracking-[-2px] leading-none text-center w-full max-w-[1000px] whitespace-pre-line">
+      <h2
+        id="contact-heading"
+        className="font-grotesk text-[44px] md:text-[80px] font-bold text-[#F5F5F0] tracking-[-2px] leading-none text-center w-full max-w-[1000px] whitespace-pre-line"
+      >
         <GlitchText text={"LET'S BUILD\nSOMETHING."} speed={40} delay={200} />
       </h2>
 
