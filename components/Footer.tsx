@@ -59,7 +59,10 @@ export default function Footer() {
         </div>
 
         {/* Link columns */}
-        <div className="grid grid-cols-3 md:flex md:flex-1 gap-8 md:gap-[80px]">
+        <nav
+          aria-label="Footer"
+          className="grid grid-cols-3 md:flex md:flex-1 gap-8 md:gap-[80px]"
+        >
           {footerColumns.map((col) => (
             <div key={col.heading} className="flex flex-col gap-4 md:gap-[20px]">
               <span className="font-grotesk text-[11px] font-bold text-[#F5F5F0] tracking-[2px]">
@@ -78,7 +81,7 @@ export default function Footer() {
               ))}
             </div>
           ))}
-        </div>
+        </nav>
       </div>
 
       {/* Bottom bar */}
