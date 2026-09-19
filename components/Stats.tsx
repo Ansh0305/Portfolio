@@ -3,13 +3,13 @@ import { metrics } from "@/data";
 export default function Stats() {
   return (
     <section className="flex flex-col w-full bg-[#FFD600] py-12 px-6 md:py-[80px] md:px-[120px]">
-      <span className="font-ibm-mono text-[12px] font-bold text-[#0A0A0A] tracking-[3px]">
+      <h2 className="font-ibm-mono text-[12px] font-bold text-[#0A0A0A] tracking-[3px]">
         [03] // BY THE NUMBERS
-      </span>
+      </h2>
       <div className="h-8 md:h-[32px]" />
-      <div className="grid grid-cols-2 md:flex w-full gap-[2px] md:gap-0">
+      <ul className="grid grid-cols-2 md:flex w-full gap-[2px] md:gap-0">
         {metrics.map((stat, i) => (
-          <div
+          <li
             key={stat.label}
             className={`flex flex-col gap-2 items-center justify-center py-6 md:py-0 md:h-[160px] md:flex-1
               ${i < metrics.length - 1 ? "md:border-r-2 md:border-r-[#0A0A0A]" : ""}
@@ -24,9 +24,9 @@ export default function Stats() {
             <span className="font-ibm-mono text-[10px] md:text-[12px] font-bold text-[#1A1A1A] tracking-[2px]">
               {stat.label}
             </span>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
