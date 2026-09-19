@@ -11,7 +11,7 @@ function FeatureCard({
   borderColor,
 }: SkillCard) {
   return (
-    <div
+    <article
       className="flex flex-col gap-5 p-8 md:p-[32px] border w-full md:flex-1 md:h-[320px]"
       style={{ backgroundColor: bgColor, borderColor }}
     >
@@ -30,7 +30,7 @@ function FeatureCard({
           {tag}
         </span>
       </div>
-    </div>
+    </article>
   );
 }
 
