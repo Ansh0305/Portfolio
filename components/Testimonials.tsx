@@ -9,14 +9,14 @@ function TestimonialCard({
   accentColor,
 }: Reference) {
   return (
-    <div
+    <figure
       className="flex flex-col gap-6 p-8 md:p-[40px] border-l-4 w-full md:flex-1"
       style={{ backgroundColor: bgColor, borderLeftColor: accentColor }}
     >
-      <p className="font-ibm-mono text-[13px] text-[#CCCCCC] tracking-[1px] leading-[1.6]">
+      <blockquote className="font-ibm-mono text-[13px] text-[#CCCCCC] tracking-[1px] leading-[1.6]">
         &ldquo;{quote}&rdquo;
-      </p>
-      <div className="flex items-center gap-[12px]">
+      </blockquote>
+      <figcaption className="flex items-center gap-[12px]">
         <div
           className="flex items-center justify-center w-[36px] h-[36px] rounded-full bg-[#333333] shrink-0"
           aria-hidden="true"
@@ -33,14 +33,17 @@ function TestimonialCard({
             {role}
           </span>
         </div>
-      </div>
-    </div>
+      </figcaption>
+    </figure>
   );
 }
 
 export default function Testimonials() {
   return (
-    <section className="flex flex-col w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] gap-12 md:gap-[64px]">
+    <section
+      aria-label="References"
+      className="flex flex-col w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] gap-12 md:gap-[64px]"
+    >
       <SectionHeader
         label="[04] // REFERENCES"
         title={"PEOPLE I'VE\nWORKED WITH."}
