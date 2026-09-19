@@ -55,14 +55,17 @@ export default function GlitchText({
   return (
     // Outer span: holds the full text invisibly to reserve exact dimensions
     <span ref={ref} className={className} style={{ position: "relative", display: "inline-block" }}>
+      {/* Accessible copy — announced once, not per character */}
+      <span className="sr-only">{text}</span>
+
       {/* Ghost text — always here, reserves width + height, never visible */}
       <span aria-hidden="true" style={{ visibility: "hidden", whiteSpace: "pre" }}>
         {text}
       </span>
 
-      {/* Animated text — absolutely overlaid, same position */}
+      {/* Animated text — fully decorative */}
       <span
-        aria-live="polite"
+        aria-hidden="true"
         style={{
           position: "absolute",
           top: 0,
