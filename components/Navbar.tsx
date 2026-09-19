@@ -63,13 +63,14 @@ export default function Navbar() {
         </a>
 
         {/* ── Desktop nav ── */}
-        <nav className="hidden md:flex items-center gap-[36px]">
+        <nav aria-label="Main" className="hidden md:flex items-center gap-[36px]">
           {navLinks.map(({ label, section }) => {
             const isActive = active === section;
             return (
               <button
                 key={label}
                 onClick={() => scrollTo(section)}
+                aria-current={isActive ? "true" : undefined}
                 className="relative font-ibm-mono text-[10px] tracking-[1.5px] transition-colors duration-150 bg-transparent border-none cursor-pointer"
                 style={{ color: isActive ? "#FFD600" : "#555" }}
                 onMouseEnter={(e) => {
@@ -111,7 +112,9 @@ export default function Navbar() {
         <button
           className="md:hidden flex flex-col gap-[5px] p-2 -mr-2"
           onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
         >
           <span
             className="block w-[20px] h-[1.5px] bg-[#F5F5F0] transition-transform duration-200 origin-center"
@@ -130,6 +133,7 @@ export default function Navbar() {
 
       {/* ── Mobile drawer ── */}
       <div
+        id="mobile-navigation"
         className="md:hidden overflow-hidden transition-all duration-300"
         style={{
           maxHeight:    menuOpen ? "400px" : "0px",
