@@ -12,7 +12,10 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       {/* Screenshot slot — swap in a real image later */}
       <div className="flex items-center justify-center h-[160px] md:h-[180px] bg-[#1A1A1A] border border-[#2D2D2D] shrink-0">
-        <span className="font-ibm-mono text-[11px] text-[#333333] tracking-[2px]">
+        <span
+          aria-hidden="true"
+          className="font-ibm-mono text-[11px] text-[#333333] tracking-[2px]"
+        >
           [SCREENSHOT]
         </span>
       </div>
@@ -157,7 +160,10 @@ export default function Showcase() {
 
       {/* Footer */}
       <div className="flex items-center justify-between px-6 md:px-[120px] pb-16 md:pb-[100px]">
-        <span className="font-ibm-mono text-[11px] text-[#444444] tracking-[2px]">
+        <span
+          aria-live="polite"
+          className="font-ibm-mono text-[11px] text-[#444444] tracking-[2px]"
+        >
           SHOWING {String(active + 1).padStart(2, "0")} OF{" "}
           {String(projects.length).padStart(2, "0")} PROJECTS
         </span>
