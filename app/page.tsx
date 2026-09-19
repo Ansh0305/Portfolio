@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import PixelDivider from "@/components/PixelDivider";
+import StripeDivider from "@/components/StripeDivider";
 import Logos from "@/components/Logos";
 import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
@@ -14,10 +14,10 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="flex flex-col w-full bg-[#0A0A0A] pt-[60px]">
+    <main id="main" className="flex flex-col w-full bg-[#0A0A0A] pt-[60px]">
       <Navbar />
       <Hero />
-      <PixelDivider />
+      <StripeDivider />
       <Logos />
       <Features />
       <HowItWorks />
