@@ -9,7 +9,7 @@ site ships with zero image assets and no UI libraries.
 
 | Layer      | Choice                                        |
 | ---------- | --------------------------------------------- |
-| Framework  | Next.js 15 (App Router)                       |
+| Framework  | Next.js 16 (App Router)                       |
 | UI         | React 19                                      |
 | Styling    | Tailwind CSS v4 (CSS-first config)            |
 | Language   | TypeScript 5 (strict)                         |
@@ -29,12 +29,14 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ### Scripts
 
-| Command         | Description                          |
-| --------------- | ------------------------------------ |
-| `npm run dev`   | Start the dev server with hot reload |
-| `npm run build` | Create an optimized production build |
-| `npm start`     | Serve the production build           |
-| `npm run lint`  | Run ESLint                           |
+| Command            | Description                          |
+| ------------------ | ------------------------------------ |
+| `npm run dev`      | Start the dev server with hot reload |
+| `npm run build`    | Create an optimized production build |
+| `npm start`        | Serve the production build           |
+| `npm run lint`     | Run ESLint over the project          |
+| `npm run lint:fix` | Run ESLint and apply auto-fixes      |
+| `npm run format`   | Format every file with Prettier      |
 
 ## Project Structure
 
@@ -103,15 +105,19 @@ Change `--yellow` / `--orange` to re-skin the entire site.
 ## Tooling
 
 Editor, formatting and linting configs ship with the repo — `.editorconfig`,
-`.gitattributes`, `prettier.config.mjs` and `eslint.config.mjs`. The packages
-themselves are optional dev dependencies, so install them if you want to run
-them:
+`.gitattributes`, `prettier.config.mjs` and `eslint.config.mjs`. ESLint,
+`eslint-config-next` and Prettier are listed as dev dependencies, so a plain
+`npm install` is all that is required to run them:
 
 ```bash
-npm install -D eslint eslint-config-next @eslint/eslintrc prettier
-npm run lint
-npx prettier --write .
+npm run lint        # lint the whole project
+npm run lint:fix    # lint and apply auto-fixes
+npm run format      # format with Prettier
 ```
+
+`eslint.config.mjs` uses ESLint's flat config format and consumes the native
+flat presets exported by `eslint-config-next`, so no legacy `FlatCompat` bridge
+is needed.
 
 ## Deployment
 
@@ -121,6 +127,9 @@ Vercel:
 1. Push the repository to GitHub.
 2. Import it in Vercel — the Next.js preset is detected automatically.
 3. No environment variables are required.
+
+Next.js 16 requires **Node.js 20.9.0 or newer** (declared in `engines` in
+`package.json`).
 
 ## License
 
