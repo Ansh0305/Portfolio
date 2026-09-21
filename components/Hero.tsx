@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import GlitchText from "@/components/GlitchText";
 import CollabCursors from "@/components/CollabCursors";
 import { profile, heroTicker } from "@/data";
@@ -10,9 +10,22 @@ function scrollTo(id: string) {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
+/**
+ * `true` once the client has taken over from the server render. Reading this
+ * through `useSyncExternalStore` gives the same server/client split as an
+ * effect that flips a flag, minus the cascading render that
+ * `react-hooks/set-state-in-effect` warns about.
+ */
+const subscribe = () => () => {};
+const getClientSnapshot = () => true;
+const getServerSnapshot = () => false;
+
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(
+    subscribe,
+    getClientSnapshot,
+    getServerSnapshot,
+  );
 
   return (
     <section className="relative flex flex-col items-center w-full bg-[#0A0A0A] py-16 px-6 md:py-[100px] md:px-[120px] overflow-hidden">
